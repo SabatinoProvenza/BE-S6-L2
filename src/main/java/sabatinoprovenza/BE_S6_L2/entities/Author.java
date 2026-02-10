@@ -1,8 +1,15 @@
 package sabatinoprovenza.BE_S6_L2.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.time.LocalDate;
 import java.util.Random;
 
+@Getter
+@Setter
+@ToString
 public class Author {
     private long id;
     private String nome;
@@ -11,7 +18,7 @@ public class Author {
     private LocalDate dataDiNascita;
     private String avatar;
 
-    public Author(String mome, String cognome, String email, LocalDate dataDiNascita, String avatar) {
+    public Author(String nome, String cognome, String email, LocalDate dataDiNascita) {
         Random rndm = new Random();
         this.id = rndm.nextInt(1, 1000);
         this.nome = nome;
