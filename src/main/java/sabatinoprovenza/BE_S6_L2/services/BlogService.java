@@ -32,4 +32,22 @@ public class BlogService {
             throw new NotFoundException("Il blog con id: " + id + " non è stato trovato");
         return found;
     }
+
+    public Blog updateBlog(long id, BlogPayload payload) {
+        Blog found = this.findById(id);
+
+        found.setCategoria(payload.getCategoria());
+        found.setTitolo(payload.getTitolo());
+        found.setContenuto(payload.getContenuto());
+        found.setTempoDiLettura(payload.getTempoDiLettura());
+
+        return found;
+    }
+
+    public void deleteBlog(long id) {
+        Blog found = this.findById(id);
+        this.blogs.remove(found);
+    }
+
+
 }
